@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d2999c7a-f51a-4909-91a0-04abf2cda10c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://yelotag.com/admin/Service1.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="d8874bb6-c033-4004-b6ea-b002fa6196d0" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="d0b4d475-8976-4ea2-b9f3-eef2e5b1e0a8" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="67657ceb-2b59-4d09-8ae0-39c96a210d57" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="13f55ef6-ae40-493e-a350-80860eb002ce" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="c763f8ad-c7dc-4b0e-8f27-3928567ab48c" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="acd9c57e-402f-4cff-ad06-5bd2afddeae6" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?disco" />
+    <MetadataFile FileName="Service11.wsdl" MetadataType="Wsdl" ID="31500e45-b3c3-4f8b-9cb5-09c952fb7166" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service14.xsd" MetadataType="Schema" ID="d1853ba7-1372-4ca9-aa95-a3ec81afb8b5" SourceId="1" SourceUrl="http://yelotag.com/admin/Service1.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

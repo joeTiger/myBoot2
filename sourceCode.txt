@@ -1,0 +1,40 @@
+http://localhost:2245/admin/filestore/
+/admin/FileStore/
+
+
+
+
+
+
+//public void setViewBagMenuAllCatModel()
+        //{
+        //    if (ViewBag.MenuAllCatModel == null)
+        //    {
+        //        if (Session["MenuAllCatModel"] == null)
+        //        {
+        //            int bizId = 72751; int lg = 0; int catId = 0;
+        //            IEnumerable<spGetTreePdtByBizResult> list = objService.GetTreePdtByBiz(bizId, lg);
+        //            Session["MenuAllCatModel"] = list;
+        //            //Session["MenuCatModel"] = objService.GetGridPdtByBizMenu(catId, bizId, lg);
+        //            mylog("MenuAllCatModel=" +
+        //                ((IEnumerable<spGetTreePdtByBizResult>)Session["MenuAllCatModel"]).ToList().Count);
+        //        }
+        //        ViewBag.MenuAllCatModel = Session["MenuAllCatModel"];
+        //    }
+        //}
+
+        //public IEnumerable<spGetTreeEltPageResult> GenMenu(int bizId, int lg)
+        //{
+        //    if (Session["MenuModel"] != null)
+        //    {
+        //        ViewBag.MenuModel = Session["MenuModel"];
+        //    }
+        //    else
+        //    {
+        //        IEnumerable<spGetTreeEltPageResult> list = objService.GetTreeEltPage(bizId, 0, lg);
+        //        ViewBag.MenuModel = list;
+        //        Session["MenuModel"] = list;
+        //    }
+        //    return ViewBag.MenuCatModel;
+
+        //}

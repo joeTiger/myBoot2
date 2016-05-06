@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Portfolio";
+}
+@*map path*@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                @ViewBag.Pdt[0].category
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink((string)ViewBag.MenuModel[0].name, "Index", "Home", 
+                    new{bizId=@ViewBag.bizId, lg=@ViewBag.lg, catId = 0, subId = 0, id = @ViewBag.firstPageId }, null)
+                </li>
+
+                @if (@ViewBag.subId > 0)
+                {
+                <li>
+                    @Html.ActionLink((string)ViewBag.Cat[0].category, "Index", "Portfolio",
+                    new{bizId=@ViewBag.bizId, lg=@ViewBag.lg, catId= ViewBag.Cat[0].catId},null)
+                </li>
+                }
+                <li class="active">@ViewBag.Pdt[0].category</li>
+                
+            </ol>
+        </div>
+    </div>
+
+    @*<h6>display subCat...currentSubId =@ViewBag.subId </h6>*@
+    @if (@ViewBag.subId == 0)
+    {
+        @*<h6>display subCat...</h6>*@
+        <div class="row" style="padding-top:0px">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+                <div class="list-group list-group-horizontal">
+                    @foreach (var e in ViewBag.Cat)
+                    {
+                        if (e.catId == ViewBag.Pdt[0].catId) { continue; }
+                        <a href='@Url.Action("Index","Portfolio", 
+                                new{bizId=@e.bizId, lg=@ViewBag.lg, catId=@e.parId, subId=@e.catId})'
+                           class="list-group-item">@e.category</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @*display only products*@
+
+    @if (ViewBag.Cat.Count==1 || @ViewBag.subId > 0)
+    {
+        @*<h6>display only products </h6>*@
+        
+        <div class="row text-center">
+            @foreach (var e in ViewBag.Pdt)
+            {
+                
+            <div class="col-md-4 portfolio-item">
+                <a href='@Url.Action("Index","SingleItem",
+                        new{bizId=@ViewBag.bizId, lg=@ViewBag.lg, catId=@ViewBag.catId , subId=@ViewBag.subId, id=@e.id })'>
+                    <img src="/admin/FileStore/@e.imageFileName" 
+                         style="height: 280px;" class="img-responsive">
+                </a>
+                @*<h6>@e.id</h6>*@
+                <h5>
+                    @Html.ActionLink((string)e.name, "Index", "SingleItem",
+                        new { bizId = @ViewBag.bizId, lg = @ViewBag.lg, catId = @ViewBag.catId, subId = @ViewBag.subId, id = @e.id }, null)
+                </h5>
+            </div>
+            }
+        </div>
+    }
+    
+    else 
+    {
+        @*<h6>display products per sub categories</h6>*@
+
+        <div class="row" >
+            <div class="col-md-4" >
+                <img src="/admin/FileStore/@ViewBag.Pdt[0].imageFileName" 
+                     style="height: 280px;" class="img-responsive">
+            </div>
+            <div class="col-md-4">
+                <h2>@ViewBag.Pdt[0].category</h2>
+                <p> @Html.Raw(ViewBag.Pdt[0].descPdt)</p>
+            </div>
+        </div>
+
+        foreach (var c in ViewBag.Cat)
+        {
+            if (@c.catId == ViewBag.Cat[0].catId) {continue;}
+
+            <h2>@c.category</h2>
+            <div class="row text-center">
+                @foreach (var e in ViewBag.Pdt)
+                {
+                if(c.catId==e.catId)
+                {
+                <div class="col-md-4 portfolio-item">
+                    <a href='@Url.Action("Index","SingleItem", 
+                            new{bizId=@e.bizId, lg=@ViewBag.lg, catId=@e.parId , subId=@e.catId,id=@e.id})'>
+                        <img src="/admin/FileStore/@e.imageFileName" 
+                             style="height: 280px;" class="img-responsive">
+                    </a>
+                    <h5>
+                        @Html.ActionLink((string)e.name, "Index", "SingleItem",
+                       new { bizId = @e.bizId, lg = @ViewBag.lg, catId = @e.parId, subId = @e.catId, id = @e.id }, null)
+                    </h5>
+                </div>
+                }
+                }
+            </div>
+        }
+    }
+</div>
+
+

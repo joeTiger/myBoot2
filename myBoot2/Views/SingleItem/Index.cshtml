@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Single Portfolio Item";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                @ViewBag.Pdt[0].category
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink((string)ViewBag.MenuModel[0].name, "Index", "Home",
+                    new { bizId = @Model.bizId, lg = @ViewBag.lg, catId = 0, subId = 0, id = @ViewBag.firstPageId }, null)
+                </li>
+                    
+                <li>
+                    @Html.ActionLink((string)ViewBag.Cat[0].category, "Index", "Portfolio",
+                    new { bizId = @ViewBag.bizId, lg = @ViewBag.lg, catId = ViewBag.Cat[0].catId }, null)
+                </li>
+
+                @if (@ViewBag.subId > 0)
+                {
+                    <li>
+                        @Html.ActionLink((string)ViewBag.Cat[1].category, "Index", "Portfolio",
+                    new { bizId = @ViewBag.bizId, lg = @ViewBag.lg, catId = ViewBag.Cat[0].catId, subId=ViewBag.Cat[1].catId }, null)
+                    </li>
+                }
+                <li class="active">@Model.name</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <img src="/admin/FileStore/@Model.imageFileName" class="img-responsive">
+        </div>
+        <div class="col-md-4">
+            <h3>@Model.name</h3>
+            <p> @Html.Raw(@Model.descPdt)</p>      
+            <h3>@Model.price</h3>
+            <a class="btn btn-lg btn-primary" href="http://startbootstrap.com">Add to cart</a>
+            
+
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">Related Projects</h3>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+            </a>
+        </div>
+    </div>
+</div>

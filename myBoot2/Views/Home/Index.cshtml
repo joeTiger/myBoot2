@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    @*<div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+            <div class="carousel-caption">
+                <h1>Modern Business - A Bootstrap 3 Template</h1>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+            <div class="carousel-caption">
+                <h1>Ready to Style &amp; Add Content</h1>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+            <div class="carousel-caption">
+                <h1>
+                    Additional Layout Options at <a href="http://startbootstrap.com">http://startbootstrap.com</a>
+                </h1>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="carousel-inner">
+        @{int i = 0;}
+
+        @foreach (var e in ViewBag.Slider)
+        {
+            if (i == 0)
+            {
+                <div class="item active">
+                    <div class="fill"
+                         style="background-image:url('/admin/FileStore/@e.imageFileName');">
+                    </div>
+                    <div class="carousel-caption">
+                        <h1>@e.category</h1>
+                        <h2>@e.name</h2>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="item">
+                    <div class="fill"
+                         style="background-image:url('/admin/FileStore/@e.imageFileName');">
+                    </div>
+                    <div class="carousel-caption">
+                        <h1>@e.category</h1>
+                        <h2>@e.name</h2>
+                    </div>
+                </div>            
+            }
+            i++;
+            if (i == 3) { break; }
+        }
+    </div>   
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+</div>
+
+<br/>
+<br />
+
+<section id="section">
+    <div class="container">
+        <div class="row text-center">
+            @foreach (var e in ViewBag.MenuCatModel)
+            {
+                <div class="col-lg-4 col-md-4">
+                    <a href='@Url.Action("Index","Portfolio", new{bizId=@ViewBag.bizId, lg=@ViewBag.lg, catId=@e.catId})'>
+                        <img class="img-circle" src="/admin/FileStore/@e.imageFileName" height="200"
+                             alt="Generic placeholder image">
+                        <h3>@e.category</h3>
+                        <a />
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+
+@*@(Html.Kendo().DatePicker().Name("datepicker"))*@
+
+@*<h2>Album: @Model[0].Name</h2>*@
+
+@Html.Raw(@ViewBag.PageDataModel)
